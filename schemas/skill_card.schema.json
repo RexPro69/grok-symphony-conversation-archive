@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Skill Definition Schema",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "version": { "type": "string" },
+    "status": { "type": "string", "enum": ["DRAFT", "CANDIDATE", "VERIFIED", "CANONICAL", "SUPERSEDED", "ARCHIVED", "DISPUTED"] },
+    "owner_mode": { "type": "string" },
+    "overview": { "type": "string" },
+    "when_to_use": { "type": "string" },
+    "when_not_to_use": { "type": "string" },
+    "trigger_patterns": { "type": "array", "items": { "type": "string" } },
+    "inputs": { "type": "array", "items": { "type": "string" } },
+    "process": { "type": "string" },
+    "outputs": { "type": "array", "items": { "type": "string" } },
+    "common_rationalizations": { "type": "array", "items": { "type": "string" } },
+    "red_flags": { "type": "array", "items": { "type": "string" } },
+    "verification_checklist": { "type": "array", "items": { "type": "string" } },
+    "related_skills": { "type": "array", "items": { "type": "string" } },
+    "retirement_criteria": { "type": "string" }
+  },
+  "required": ["name", "description", "version", "status", "overview", "process", "common_rationalizations", "red_flags", "verification_checklist"]
+}
