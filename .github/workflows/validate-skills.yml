@@ -1,0 +1,20 @@
+name: Validate Skills
+on:
+  pull_request:
+    paths:
+      - 'skills/**/SKILL.md'
+      - 'schemas/skill_card.schema.json'
+      - 'tests/validate_skill_cards.py'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+      - name: Run skill card validator
+        run: python tests/validate_skill_cards.py
